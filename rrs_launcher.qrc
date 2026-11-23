@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="/icons">
+    <file alias="rrs_launcher.png">rrs_launcher.png</file>
+  </qresource>
+</RCC>
