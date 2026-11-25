@@ -11,7 +11,7 @@ if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
 endif()
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets OpenGL OpenGLWidgets)
+find_package(Qt6 REQUIRED COMPONENTS Widgets OpenGL OpenGLWidgets Xml Network)
 qt_standard_project_setup()
 
 if(WIN32)
@@ -21,7 +21,7 @@ if(WIN32)
         rrs_launcher.rc
     )
     set_target_properties(RRSLauncher PROPERTIES WIN32_EXECUTABLE TRUE)
-    target_link_libraries(RRSLauncher PRIVATE dxgi)
+    target_link_libraries(RRSLauncher PRIVATE dxgi Version)
 else()
     qt_add_executable(RRSLauncher
         main.cpp
@@ -29,4 +29,4 @@ else()
     )
 endif()
 
-target_link_libraries(RRSLauncher PRIVATE Qt6::Widgets Qt6::OpenGL Qt6::OpenGLWidgets)
+target_link_libraries(RRSLauncher PRIVATE Qt6::Widgets Qt6::OpenGL Qt6::OpenGLWidgets Qt6::Xml Qt6::Network)
